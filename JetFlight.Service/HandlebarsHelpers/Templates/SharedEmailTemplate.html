@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en">
+  <head>
+    <link
+      rel="preload"
+      as="image"
+      href="@public/assets/images/chain/arsen.png" />
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700"
+      rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Lato', sans-serif;
+      }
+    </style>
+    <style>
+      @media(min-width:1280px){.xl_px-40{padding-left:10rem !important;padding-right:10rem !important}}@media(min-width:1280px){.xl_min-w-80{min-width:20rem !important}}
+    </style>
+  </head>
+  <body
+    class="xl_px-40"
+    style="background-color:rgb(229,247,234);padding-top:2.5rem;padding-bottom:2.5rem;padding-left:0.5rem;padding-right:0.5rem">
+    <!--$-->
+    <table
+      align="center"
+      width="100%"
+      class="xl_min-w-80"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      role="presentation"
+      style="background-color:rgb(255,255,255);border-width:1px;border-style:solid;border-color:#346e5066;border-radius:1.5rem;max-width:37.5em">
+      <tbody>
+        <tr style="width:100%">
+          <td>
+            <table
+              align="center"
+              width="100%"
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              role="presentation"
+              style="padding:2.5rem;max-width:37.5em">
+              <tbody>
+                <tr style="width:100%">
+                  <td>
+                    <p
+                      style="color:rgb(17,17,17);text-align:center;font-size:1.875rem;line-height:2.25rem;font-weight:700;margin-top:16px;margin-bottom:16px">
+                      {{Title}}
+                    </p>
+                    <p
+                      style="color:rgb(92,101,115);text-align:center;font-size:1rem;line-height:1.5rem;margin-top:16px;margin-bottom:16px">
+                      {{Description}}
+                    </p>
+                    {{#if ctaUrl }}
+                      <a
+                        href="{{ctaUrl}}"
+
+                        style="padding-top:12px;padding-bottom:12px;width:100%;background-color:rgb(51,168,83);text-align:center;border-radius:0.5rem;color:rgb(255,255,255);font-size:1.125rem;line-height:1.75rem;font-weight:700;text-decoration:none;display:inline-block;max-width:100%;mso-padding-alt:0px"
+                        target="_blank"
+                        ><span
+                          ><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:18" hidden></i><![endif]--></span
+                        ><span
+                          style="max-width:100%;display:inline-block;line-height:120%;mso-padding-alt:0px;mso-text-raise:9px"
+                          >Перейти</span
+                        ><span
+                          ><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--></span
+                        ></a
+                      >
+                    {{/if}}
+                    {{#if helpText }}
+                      <p
+                        class="tw-text-xs"
+                        style="color:rgb(92,101,115);font-size:14px;line-height:24px;margin-top:16px;margin-bottom:16px">
+                        {{helpText}}
+                      </p>
+                    {{/if}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            {{#if branchData }}
+              <hr style="width:100%;border:none;border-top:1px solid #eaeaea" />
+              <table
+                align="center"
+                width="100%"
+                border="0"
+                cellpadding="0"
+                cellspacing="0"
+                role="presentation"
+                style="padding-left:2rem;padding-right:2rem;padding-bottom:2.5rem;padding-top:1rem;max-width:37.5em">
+                <tbody>
+                  <tr style="width:100%">
+                    <td>
+                      <p
+                        style="color:rgb(92,101,115);font-size:0.875rem;line-height:1.25rem;margin-top:16px;margin-bottom:16px">
+                        Залишилися питання? Напишіть нам на<!-- -->
+                        <a
+                          href="mailto:{{branchData.email}}"
+                          style="color:rgb(17,17,17);font-weight:700;line-height:100%;text-decoration:none;display:inline-block;max-width:100%;mso-padding-alt:0px"
+                          target="_blank"
+                          ><span
+                            ><!--[if mso]><i style="mso-font-width:0%;mso-text-raise:0" hidden></i><![endif]--></span
+                          ><span
+                            style="max-width:100%;display:inline-block;line-height:120%;mso-padding-alt:0px"
+                            >{{branchData.email}}</span
+                          ><span
+                            ><!--[if mso]><i style="mso-font-width:0%" hidden>&#8203;</i><![endif]--></span
+                          ></a
+                        >
+                      </p>
+                      <img
+                        class="tw-h-7 tw-object-contain"
+                        alt="logo"
+                        src="{{branchData.logoUrl}}"
+                        style="width:8rem;display:block;outline:none;border:none;text-decoration:none" />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            {{/if}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--7--><!--/$-->
+  </body>
+</html>

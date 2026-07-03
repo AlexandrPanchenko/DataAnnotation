@@ -1,0 +1,15 @@
+{
+  "healthchecks": {
+    "web": [
+      {
+        "type": "startup",
+        "name": "web check",
+        "description": "Checking if the app responds to the /swagger/client/swagger.json endpoint",
+        "path": "/swagger/client/swagger.json",
+        "initialDelay": 30,
+        "attempts": 10,
+        "content": "JetFlight Client API"
+      }
+    ]
+  }
+}

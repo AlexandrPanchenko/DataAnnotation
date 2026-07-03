@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+* { font-family: 'Titillium Web'; font-size: 11pt }
+h2 { font-size: 140% }
+table { width: 100% }
+table td:first-child { width: 200px }
+td { vertical-align: top; padding-top: 0.5em; padding-bottom: 0.5em }
+.center { text-align: center; }
+.danger { background-color: #900; color: #fff; }
+.row:first-child { margin-top: 0; }
+.row { border: 3px solid black; padding: 1em; margin-top: 1em; break-inside: avoid; }
+.row .description { padding: 0.5em 0; }
+.hl { z-index: 2; position: relative; text-align: center; margin: 0.5em 0; }
+.hl:after { z-index: -1; content: ' '; position: absolute; top: 50%; left: 0; border-bottom: 1px solid #ccc; width: 100%; }
+.hl span { display: inline-block; background-color: #fff; padding: 0 1em; font-size: 80%; }
+.inv { background-color: #000; color: #fff; }
+.ts { margin-top: 0.5em; }
+.ts:first-child { margin-top: 0; }
+.smaller { font-size: 87% }
+@page {
+    @top-right {
+        font-size: 87%;
+        content: 'Page ' counter(page) ' of ' counter(pages)
+    }
+    @top-left {
+        font-size: 87%;
+        content: 'Report for {{AircraftId}} generated on {{TimeStamp}} by {{FirstName}} {{LastName}} using {{Server}} server'
+    }
+}

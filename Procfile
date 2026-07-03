@@ -1,0 +1,1 @@
+web: .deployment/docker/app/start.sh

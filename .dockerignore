@@ -1,0 +1,14 @@
+**/.git
+**/.vs
+**/bin
+**/obj
+**/*.user
+**/*.suo
+**/agent-tools
+**/agent-transcripts
+benchmark/
+src/
+.github/
+.opencode/
+*.md
+!problem.txt

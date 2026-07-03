@@ -1,0 +1,27 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+COPY JetFlight.sln ./
+COPY src/JetFlight.WebApi.csproj ./src/
+COPY JetFlight.Service/JetFlight.Service.csproj ./JetFlight.Service/
+COPY JetFlight.Shared/JetFlight.Shared.csproj ./JetFlight.Shared/
+COPY JetFlight.ApplicationDataAccess/JetFlight.ApplicationDataAccess.csproj ./JetFlight.ApplicationDataAccess/
+COPY JetFlight.IntegrationDataAccess/JetFlight.IntegrationDataAccess.csproj ./JetFlight.IntegrationDataAccess/
+
+RUN dotnet restore src/JetFlight.WebApi.csproj
+
+COPY src/ ./src/
+COPY JetFlight.Service/ ./JetFlight.Service/
+COPY JetFlight.Shared/ ./JetFlight.Shared/
+COPY JetFlight.ApplicationDataAccess/ ./JetFlight.ApplicationDataAccess/
+COPY JetFlight.IntegrationDataAccess/ ./JetFlight.IntegrationDataAccess/
+
+RUN dotnet publish src/JetFlight.WebApi.csproj -c Release -o /app/publish --no-restore
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+RUN mkdir -p /app/storage
+COPY --from=build /app/publish .
+ENV ASPNETCORE_URLS=http://0.0.0.0:8080
+EXPOSE 8080
+ENTRYPOINT ["dotnet", "JetFlight.WebApi.dll"]
