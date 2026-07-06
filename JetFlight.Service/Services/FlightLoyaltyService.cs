@@ -58,10 +58,6 @@ public interface IFlightLoyaltyService
         string? promotionTypeNavisionId = null,
         string? token = null);
 
-    Task<PromotionDetailsClientDTO?> GetPromotionByIdAsync(
-        byte branchId,
-        int promotionId);
-
     Task<PromotionDisplayRuleDTO> GetDisplayRuleAsync(Branches branchId);
     Task<List<PromotionDisplayRuleDTO>> GetDisplayRulesAsync();
     Task UpdateDisplayRuleAsync(PromotionDisplayRuleDTO model);
@@ -1108,33 +1104,6 @@ public class FlightLoyaltyService : IFlightLoyaltyService
             Offset = pagingDto.Skip,
             Limit = pagingDto.Take
         };
-    }
-
-    public async Task<PromotionDetailsClientDTO?> GetPromotionByIdAsync(
-        byte branchId,
-        int promotionId)
-    {
-        // Для детального перегляду застосовуємо ті самі базові фільтри,
-        // що й у списку акцій: активна, не прострочена, у межах мережі.
-        var baseQuery = BuildPromotionsQuery(
-            branchId,
-            searchParam: null,
-            createdDate: null,
-            promotionTagIds: null,
-            categoryCode: null,
-            promotionTypeNavisionId: null,
-            store: null);
-
-        var promotions = await baseQuery
-            .Where(p => p.Id == promotionId)
-            .ToListAsync();
-
-        if (promotions.Count == 0)
-        {
-            return null;
-        }
-
-        return await BuildPromotionDetailsClientDtoAsync(promotions);
     }
 
     private async Task ValidateRecaptchaTokenAsync(string? token)

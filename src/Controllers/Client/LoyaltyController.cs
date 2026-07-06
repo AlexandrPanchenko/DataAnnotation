@@ -69,22 +69,6 @@ public class LoyaltyController : BaseController
         return Ok(promotions);
     }
 
-    [HttpGet("{id}")]
-    [ProducesResponseType(typeof(PromotionDetailsClientDTO), 200)]
-    [ProducesResponseType(404)]
-    public async Task<IActionResult> GetPromotionById(
-        int id,
-        [FromHeader][Required] Branches branchId)
-    {
-        var promotion = await _flightLoyaltyService.GetPromotionByIdAsync((byte)branchId, id);
-        if (promotion == null)
-        {
-            return NotFound("Loyalty offer not found or no longer active.");
-        }
-
-        return Ok(promotion);
-    }
-
     [HttpPost("ticket-discount")]
     [ProducesResponseType(typeof(decimal), 200)]
     public async Task<ActionResult<decimal>> GetTicketDiscount(
